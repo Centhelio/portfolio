@@ -1,0 +1,12 @@
+schema: "classroom50/repo-config/v1"
+classroom: "pw-a26"
+assignment: "gsap"
+owner:
+  username: "Centhelio"
+  id: 150974856
+  accepted_at: "2026-09-18T12:41:04Z"
+source:
+  owner: "tim-cw"
+  owner_id: 97471838
+  repo: "tpl_gsap"
+  branch: "main"
