@@ -10,16 +10,13 @@ h5,
 h6 {
     font-family: var(--font-secondary);
     line-height: 1.1;
-    font-weight: bold;
+    font-weight: 600;
     margin: 0;
 }
 
 h1,
 .h1 {
     font-size: var(--font-size-h1);
-    line-height: 1;
-    font-weight: 800;
-    // letter-spacing: 0.4rem;
 }
 
 h2 {
@@ -42,6 +39,7 @@ h6 {
     font-size: var(--font-size-h6);
 }
 
-em {
-    font-style: italic;
+p {
+    font-size: var(--font-size-content);
+    margin: 0;
 }
