@@ -2,8 +2,24 @@
     ul {
         display: flex;
         justify-content: space-between;
+        padding: 0;
     }
     li {
         list-style: none;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-primary);
+        font-weight: 600;
+    }
+
+    .icon {
+        background-color: var(--color-rose);
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
     }
 }

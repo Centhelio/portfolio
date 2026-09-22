@@ -1,0 +1,25 @@
+.passions {
+    .wrapper {
+        height: 80vh;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    span:nth-child(1) {
+        color: var(--color-bleu);
+    }
+
+    span:nth-child(2) {
+        color: var(--color-rose);
+    }
+
+    span:nth-child(3) {
+        color: var(--color-jaune);
+    }
+
+    span:nth-child(4) {
+        color: var(--color-vert);
+    }
+}
