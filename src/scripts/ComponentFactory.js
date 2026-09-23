@@ -1,6 +1,7 @@
 import TextAnim from './components/TextAnim.js';
 import Scroller from './components/Scroller.js';
 import Header from './components/header.js';
+import Timeline from './components/Timeline.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -9,6 +10,7 @@ export default class ComponentFactory {
       Header,
       TextAnim,
       Scroller,
+      Timeline,
     };
     this.init();
   }

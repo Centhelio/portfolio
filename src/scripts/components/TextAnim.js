@@ -1,5 +1,5 @@
 // Étpae 1
-//npm i gspa
+//npm install gspa
 
 // Étape 2
 import { gsap } from 'gsap';
@@ -13,6 +13,7 @@ export default class TextAnim {
     gsap.registerPlugin(SplitText);
 
     this.element = element;
+
 
     // L'animation se fait une fois
     this.options = {

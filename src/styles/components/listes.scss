@@ -1,0 +1,17 @@
+.listes{
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--color-black);
+    
+}
+
+.labels {
+    border-top: none;
+    p {
+        font-size: 16px;
+        color: gray;
+        font-weight: 500;
+    }
+}
