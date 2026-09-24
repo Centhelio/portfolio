@@ -1,0 +1,46 @@
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.card {
+    position: relative;
+    height: 80%;
+}
+
+.card__media {
+    height: 100%;
+    width: 100%;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.card__content {
+    display: none;
+    padding: 50px 30px;
+    color: var(--color-white);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.card:hover {
+    .card__content {
+        display: block;
+    }
+
+    .card__media img {
+        overlay: filter(50%);
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 34px;
+}

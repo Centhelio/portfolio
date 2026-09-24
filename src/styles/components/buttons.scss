@@ -1,0 +1,12 @@
+.button {
+    padding: 10px 24px;
+    border-radius: 73px;
+    border: 3px solid var(--color-black);
+    display: flex;
+    align-items: center;
+}
+
+.secondary {
+    background-color: var(--color-white);
+    border: var(--color-rose);
+}

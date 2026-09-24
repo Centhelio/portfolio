@@ -1,0 +1,15 @@
+.cta {
+    height: 450px;
+    width: 100%;
+    background-color: var(--color-rose);
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+        gap: 30px;
+    }
+}

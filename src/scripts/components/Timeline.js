@@ -1,59 +1,58 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-
 export default class Timeline {
-    constructor(element) {
-        this.element = element;
-        
-        gsap.registerPlugin(ScrollTrigger);
-        this.points = gsap.utils.toArray('.point', this.element);
-        this.photoImg = this.element.querySelector('#photoImg');
-        this.fill = this.element.querySelector('#progressFill');
-        this.activeIndex = -1;
+  constructor(element) {
+    this.element = element;
 
-        this.init();    
-        console.log("allo");
-    }
+    gsap.registerPlugin(ScrollTrigger);
+    this.points = gsap.utils.toArray('.point', this.element);
+    this.photoImg = this.element.querySelector('#photoImg');
+    this.fill = this.element.querySelector('#progressFill');
+    this.activeIndex = -1;
 
-    init() {
-        this.trigger = ScrollTrigger.create({
-            trigger: this.element.querySelector('.scroller'),
-            start: 'top top',
-            end: 'bottom bottom',
-            onUpdate: (self) => {
-                this.fill.style.height = (self.progress * 100) + '%';
-                const index = Math.min(
-                    this.points.length - 1,
-                    Math.floor(self.progress * this.points.length)
-                );
-                this.setActive(index);
-            }
-        });
+    this.init();
+    console.log('allo');
+  }
 
-        this.setActive(0);
-    }
+  init() {
+    this.trigger = ScrollTrigger.create({
+      trigger: this.element.querySelector('.scroller'),
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: (self) => {
+        this.fill.style.height = self.progress * 100 + '%';
+        const index = Math.min(
+          this.points.length - 1,
+          Math.floor(self.progress * this.points.length),
+        );
+        this.setActive(index);
+      },
+    });
 
-    setActive(index) {
-        if (index === this.activeIndex) return;
-        this.activeIndex = index;
+    this.setActive(0);
+  }
 
-        this.points.forEach((p, i) => p.classList.toggle('active', i === index));
+  setActive(index) {
+    if (index === this.activeIndex) return;
+    this.activeIndex = index;
 
-        const pointImg = this.points[index].querySelector('.point-img');
-        const img = pointImg.src; // .src (pas getAttribute) résout le chemin final via le navigateur/bundler
+    this.points.forEach((p, i) => p.classList.toggle('active', i === index));
 
-        gsap.to(this.photoImg, {
-            opacity: 0,
-            duration: 0.25,
-            onComplete: () => {
-                this.photoImg.src = img;
-                gsap.to(this.photoImg, { opacity: 1, duration: 0.35 });
-            }
-        });
-    }
+    const pointImg = this.points[index].querySelector('.point-img');
+    const img = pointImg.src; // .src (pas getAttribute) résout le chemin final via le navigateur/bundler
 
-    destroy() {
-        this.trigger?.kill();
-    }
+    gsap.to(this.photoImg, {
+      opacity: 0,
+      duration: 0.25,
+      onComplete: () => {
+        this.photoImg.src = img;
+        gsap.to(this.photoImg, { opacity: 1, duration: 0.35 });
+      },
+    });
+  }
+
+  destroy() {
+    this.trigger?.kill();
+  }
 }
