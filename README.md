@@ -1,4 +1,4 @@
-#Nathan Larose
+Nathan Larose
 
 Designer en recherche de stage
 
