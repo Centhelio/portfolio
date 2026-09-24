@@ -1,0 +1,35 @@
+.footer {
+    padding: 100px 0;
+
+    .wrapper {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    p {
+        font-size: var(--font-size-content-small);
+        font-family: var(--font-primary);
+        font-weight: 500;
+    }
+}
+
+.footer__contact {
+    text-align: start;
+}
+
+.footer__localisation {
+    text-align: center;
+}
+
+.footer__media {
+    text-align: end;
+}
