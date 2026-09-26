@@ -12,7 +12,6 @@ export default class Timeline {
     this.activeIndex = -1;
 
     this.init();
-    console.log('allo');
   }
 
   init() {

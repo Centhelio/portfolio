@@ -27,9 +27,14 @@ h3 {
     font-size: var(--font-size-h3);
 }
 
-h4 {
+h4, .h4 {
     font-size: var(--font-size-h4);
+    font-family: var(--font-primary);
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 0;
 }
+
 
 h5 {
     font-size: var(--font-size-h5);
@@ -42,4 +47,8 @@ h6 {
 p {
     font-size: var(--font-size-content);
     margin: 0;
+}
+
+.p-small{
+    font-size: var(--font-size-content-small);
 }

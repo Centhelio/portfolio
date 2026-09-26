@@ -6,7 +6,6 @@
             <span></span>
             <h1 class="">
                 Nathan
-                <br />
                 Larose
             </h1>
 
@@ -26,7 +25,7 @@
     <div class="wrapper">
         <ul class="hub__information">
             <li>
-                <a href="#">
+                <a href="projets.html"  data-interactive>
                     <svg class="icon icons-lg hub--icons">
                         <use xlink:href="#icon-folders"></use>
                     </svg>
@@ -34,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/nathan-larose-013556300/"   data-interactive>
                     <svg class="icon icons-lg hub--icons">
                         <use xlink:href="#icon-linkedin"></use>
                     </svg>
@@ -42,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="assets/images/CV_nathan_larose_2026.pdf" download=""  data-interactive>
                     <svg class="icon icons-lg hub--icons">
                         <use xlink:href="#icon-download"></use>
                     </svg>
@@ -50,7 +49,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="mailto:nathanlarose07@gmail.con"  data-interactive>
                     <svg class="icon icons-lg hub--icons">
                         <use xlink:href="#icon-contact"></use>
                     </svg>
@@ -61,27 +60,42 @@
     </div>
 </div>
 
-<section class="passions">
-    <div class="wrapper">
-        <h2>
-            Au-delà du design :
-            <span>jeux vidéo</span>
-            ,
-            <span>arts plastiques</span>
-            ,
-            <span>amis</span>
-            et
-            <span>grandeur nature</span>
-            , mes intérêts façonnent ma perception et mon approche de la vie.
-        </h2>
+<div class="hover-image larger" data-hover="jeux_video"><img src="assets/images/jeux_video.jpg"></div>
+<div class="hover-image" data-hover="arts_plastiques"><img src="assets/images/arts_plastique.jpg"></div>
+<div class="hover-image" data-hover="amies"><img src="assets/images/amies.jpg"></div>
+<div class="hover-image" data-hover="grandeur_nature"><img src="assets/images/grandeur_nature.jpg"></div>
+
+<section class="passions" data-component="HoverImage">
+  <div class="wrapper">
+    <div class="intro-text">
+      <h2 class="hero-text">
+        <span class="normal-text">Au-delà du design :</span>
+        <span class="hover-text" data-hover="jeux_video">jeux vidéo</span>
+        <span class="normal-text">,</span>
+        <span class="hover-text" data-hover="amies">amis</span>
+        <span class="normal-text">,</span>
+        <span class="hover-text" data-hover="grandeur_nature">grandeur nature</span>
+        <span class="normal-text">et</span>
+        <span class="hover-text" data-hover="arts_plastiques">arts plastiques</span>
+        <span class="normal-text">, mes intérêts façonnent ma perception et mon approche de la vie.</span>
+      </h2>
     </div>
+  </div>
 </section>
 
 <section class="outils">
     <div class="wrapper">
-        <div class="titre">
+        <div class="titre" data-component="HighlightText">
             <h3>Mes outils</h3>
-            <p>Je maîtrise différents outils et langages pour créer des expériences numériques.</p>
+            <p>Je maîtrise 
+                <span class="highlight highlight--bleu">
+                    <span class="highlight-bg"></span>différents
+                </span>  
+                outils et langages pour créer des 
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>expériences numériques
+                </span>
+            .</p>
         </div>
     </div>
     <div class="">
@@ -130,7 +144,7 @@
                 <h3>04</h3>
                 <h4>After Effect</h4>
                 <h4>Novice</h4>
-                <p>Création d’animations et d’effets visuels.</p>
+                <p>Création d’animations et d’effets visuels dynamiques.</p>
             </div>
         </div>
     </div>
@@ -140,7 +154,7 @@
                 <h3>05</h3>
                 <h4>Html</h4>
                 <h4>Expert</h4>
-                <p>Structuration du contenu des pages web.</p>
+                <p>Structuration et création de contenu des pages web.</p>
             </div>
         </div>
     </div>
@@ -168,10 +182,26 @@
 
 <section class="cheminement" data-component="Timeline">
     <div class="wrapper">
-        <div class="titre">
+        <div class="titre"  data-component="HighlightText">
             <h3>Mon cheminement</h3>
             <p>
-                Mon parcours m’a progressivement mené vers le design numérique, en passant par le secondaire, le TIM, la robotique et différents projets
+                Mon parcours m’a progressivement mené vers le 
+                <span class="highlight highlight--bleu">
+                    <span class="highlight-bg"></span>design numérique
+                </span>
+                , en passant par le 
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>secondaire
+                </span>
+                , la 
+                <span class="highlight highlight--vert">
+                    <span class="highlight-bg"></span>TIM
+                </span>
+                , la 
+                <span class="highlight highlight--jaune">
+                    <span class="highlight-bg"></span>robotique
+                </span>
+                et différents projets
                 créatifs.
             </p>
         </div>
@@ -240,11 +270,38 @@
 
 <section class="philosophie listes">
     <div class="wrapper">
-        <div class="titre">
+        <div class="titre" data-component="HighlightText">
             <h3>Ma philosophie</h3>
             <p>
-                Je travaille avec curiosité, ouverture et collaboration. J’aime comprendre les besoins, partager mes idées et trouver des solutions créatives
-                tout en restant organisé et adaptable.
+                Je travaille avec 
+                <span class="highlight highlight--bleu">
+                    <span class="highlight-bg"></span>curiosité
+                </span>
+                , 
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>ouverture et collaboration
+                </span>
+                . J’aime 
+                <span class="highlight highlight--vert">
+                    <span class="highlight-bg"></span>comprendre les besoins
+                </span>
+                , 
+                <span class="highlight highlight--jaune">
+                    <span class="highlight-bg"></span>partager mes idées
+                </span>
+                et trouver des 
+                <span class="highlight highlight--bleu">
+                    <span class="highlight-bg"></span>solutions créatives
+                </span>               
+                tout en restant 
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>organisé
+                </span>            
+                et 
+                <span class="highlight highlight--vert">
+                    <span class="highlight-bg"></span>adaptable
+                </span>
+                .
             </p>
         </div>
     </div>
@@ -306,10 +363,21 @@
 
 <section class="realisation">
     <div class="wrapper">
-        <div class="titre">
+        <div class="titre" data-component="HighlightText">
             <h3>Mes réalisations</h3>
             <p>
-                Mes projets reflètent mon parcours, ma créativité et mes apprentissages en design. Découvrez davantage de mes réalisations et de mon évolution
+                Mes projets reflètent mon 
+                <span class="highlight highlight--bleu">
+                    <span class="highlight-bg"></span>parcours
+                </span>
+                , ma
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>créativité
+                </span>
+                et mes apprentissages en design. Découvrez davantage de mes réalisations et de mon 
+                <span class="highlight highlight--vert">
+                    <span class="highlight-bg"></span>évolution
+                </span>
                 sur ma page Projets.
             </p>
         </div>
@@ -322,8 +390,8 @@
             </div>
 
             <div class="card__content">
-                <h3>2025</h3>
-                <p>Développement d’image de marque et web</p>
+                <h3>2024</h3>
+                <p>Développement de l’image de marque des Dynamiques 9624</p>
             </div>
         </div>
 
@@ -333,8 +401,8 @@
             </div>
 
             <div class="card__content">
-                <h3>2025</h3>
-                <p>Développement d’image de marque et web</p>
+                <h3>2026</h3>
+                <p>Création de l’identité visuelle de Bourgeon</p>
             </div>
         </div>
 
@@ -344,8 +412,8 @@
             </div>
 
             <div class="card__content">
-                <h3>2025</h3>
-                <p>Développement d’image de marque et web</p>
+                <h3>2026</h3>
+                <p>Refonte et intégration du site de boxotel</p>
             </div>
         </div>
     </div>
@@ -361,10 +429,6 @@
             <a class="button primary" href="projets.html">Prendre un café</a>
         </div>
 
-        <p>
-            J’ai utilisé une intelligence artificielle uniquement pour corriger l’orthographe, la grammaire et la formulation de mes textes. Les idées et le
-            contenu du travail sont les miens.
-        </p>
     </div>
 </section>
 

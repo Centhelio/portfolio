@@ -1,7 +1,11 @@
 .footer {
-    padding: 100px 0;
+    padding: 100px 0 30px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
 
-    .wrapper {
+    .grids {
         height: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -20,6 +24,7 @@
         font-family: var(--font-primary);
         font-weight: 500;
     }
+
 }
 
 .footer__contact {
@@ -32,4 +37,23 @@
 
 .footer__media {
     text-align: end;
+}
+
+.declaration{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-small{
+    width: 70%;
+    font-size: 14px !important;
+    text-align: center;
+}
+
+
+@media (width <= $breakpoint-sm){
+    .footer .grids{
+        grid-template-columns: 1fr;
+    }
 }

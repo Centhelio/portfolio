@@ -1,7 +1,7 @@
 .titre {
     display: flex;
     justify-content: space-between;
-    padding: 100px 0 50px 0;
+    padding: 100px 0 70px 0;
 
     h2 {
         width: 30%;
@@ -9,5 +9,49 @@
 
     p {
         width: 50%;
+    }
+
+    .highlight {
+        position: relative;
+        padding: 0px 10px;
+        display: inline-block;
+        
+        .highlight-bg {
+            border-radius: 3px;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        &.highlight--bleu .highlight-bg {
+            background-color: var(--color-bleu);
+        }
+
+        &.highlight--rose .highlight-bg {
+            background-color: var(--color-rose);
+        }
+
+        &.highlight--vert .highlight-bg {
+            background-color: var(--color-vert);
+        }
+
+        &.highlight--jaune .highlight-bg {
+            background-color: var(--color-jaune);
+        }
+    }
+}
+
+@media (width <= $breakpoint-sm){
+    .titre{
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px 0 30px 0;
+
+        h2, p{
+            width: 100%;
+        }
+
     }
 }

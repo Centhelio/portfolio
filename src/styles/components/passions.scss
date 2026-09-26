@@ -7,19 +7,63 @@
         text-align: center;
     }
 
-    span:nth-child(1) {
+    span:nth-child(2) {
         color: var(--color-bleu);
     }
 
-    span:nth-child(2) {
+    span:nth-child(4) {
         color: var(--color-rose);
     }
 
-    span:nth-child(3) {
+    span:nth-child(6) {
         color: var(--color-jaune);
     }
 
-    span:nth-child(4) {
+    span:nth-child(8) {
         color: var(--color-vert);
+    }
+}
+
+
+.hover-text {
+  cursor: none;
+}
+
+.intro-text {
+  position: relative;
+}
+
+.hover-image {
+  width: 300px; /* Adjust the width as needed */
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  z-index: 10;
+  pointer-events: none;
+  cursor: none;
+  overflow: hidden;
+}
+
+.larger{
+    width: 400px;
+}
+
+/* Constrain the size of the img element inside the div */
+.hover-image img {
+  width: 100%; 
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+.dimmed {
+  transition: opacity 0.1s ease;
+}
+
+@media (width <= $breakpoint-sm){
+    .passions .wrapper{
+        height: 50vh;
     }
 }

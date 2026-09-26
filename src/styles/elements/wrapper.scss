@@ -7,3 +7,9 @@
     width: calc(100% - var(--spacing-lg));
     margin: 0 auto;
 }
+
+@media (width <= $breakpoint-sm){
+    .wrapper{
+        width: calc(100% - var(--spacing-sm));
+    }
+}

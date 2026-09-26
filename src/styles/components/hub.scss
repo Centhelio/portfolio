@@ -1,7 +1,7 @@
 .hub {
     ul {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         padding: 0;
     }
     li {
@@ -21,5 +21,15 @@
         width: 35px;
         height: 35px;
         border-radius: 100%;
+    }
+}
+
+@media (width <= $breakpoint-sm){
+    .hub {
+        width: 100%;
+        ul {
+            grid-template-columns: 1fr 1fr ;
+            gap: 10px;
+        }
     }
 }

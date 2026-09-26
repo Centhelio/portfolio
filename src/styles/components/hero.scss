@@ -5,13 +5,14 @@
 
     h1 {
         font-family: var(--font-primary);
-        font-size: 170px;
+        font-size: typo(34px, 150px);
     }
 }
 
 .hero__media {
     width: 100%;
     height: 100%;
+    order: 2;
 
     img {
         display: block;
@@ -25,6 +26,7 @@
 
 .hero__content {
     height: 100%;
+    order: 1;
 }
 
 .hero__content .wrapper {
@@ -32,7 +34,7 @@
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 
     height: 100vh;
 }
@@ -40,4 +42,37 @@
 .hero__information {
     display: flex;
     gap: 100px;
+}
+
+
+@media (width <= $breakpoint-sm){
+    .hero{
+        grid-template-columns: 1fr; 
+        gap: 30px;   
+    }
+
+    .hero__media{
+        order: 1;
+
+        img{
+            height: 100%;
+        }
+    }
+
+    .hero__content .wrapper{
+        span{
+            display: none;
+        }
+        height: auto;
+        gap: 30px;
+        
+    }
+    
+    .hero__content {
+        order: 2;
+    }
+
+    .hero__information{
+        gap: 30px;
+    }
 }
