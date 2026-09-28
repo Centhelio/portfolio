@@ -1,21 +1,12 @@
-// Étpae 1
-//npm install gspa
-
-// Étape 2
 import { gsap } from 'gsap';
-
-//Étape 4 (Plugin au besion) --> voir documentation sur gsap
 import { SplitText } from 'gsap/SplitText.js';
 
 export default class TextAnim {
   constructor(element) {
-    //Étape 4
     gsap.registerPlugin(SplitText);
 
     this.element = element;
 
-
-    // L'animation se fait une fois
     this.options = {
       repeat: false,
     };
@@ -84,7 +75,7 @@ export default class TextAnim {
         }); */
 
     gsap.set(this.split.chars, {
-      yPercent: 'random([-100, 100])',
+      yPercent: '100',
       autoAlpha: 0, //met display: none; quand alpha = 0
     });
   }
@@ -94,11 +85,11 @@ export default class TextAnim {
     const y = isAnimIn ? 0 : 'random([-100, 100])';
 
     gsap.to(this.split.chars, {
-      duration: 1,
+      duration: 0.5,
       yPercent: y,
       autoAlpha: alpha,
       delay: 0.25,
-      stagger: 0.05,
+      stagger: 0.02,
       ease: 'expo.out',
     });
   }
