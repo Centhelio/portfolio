@@ -41,7 +41,7 @@ export default class HoverImage {
   const stopFollow = () => document.removeEventListener("mousemove", align);
 
   const fade = gsap.to(imageContainer, {
-    autoAlpha: 1,
+    autoAlpha: 10,
     clipPath: 'circle(100% at 50% 50%)',
     duration: 0.5, 
     paused: true,
