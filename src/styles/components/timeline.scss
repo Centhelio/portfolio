@@ -1,121 +1,120 @@
 .cheminement {
-  .scroller {
-    position: relative;
-    height: 900vh;
-  }
-
-  .stage {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 42% 58%;
-  }
-
-  .photo {
-    position: relative;
-    overflow: hidden;
-    background: #0b0b0d;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(1.05);
+    .scroller {
+        position: relative;
+        height: 900vh;
     }
 
-  }
+    .stage {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 42% 58%;
+    }
 
-  .rail {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-    height: 100%;
-    padding: 40px 0px;
+    .photo {
+        position: relative;
+        overflow: hidden;
+        background: #0b0b0d;
 
-  }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(1.05);
+        }
+    }
 
-  .point {
-    height: 100%;
-    position: relative;
-    display: grid;
-    padding: 22px clamp(20px, 3vw, 32px);
-    grid-template-columns: 90px 1fr;
-    align-items: center;
-    gap: 50px;
-    border-bottom: 1px solid var(--color-black);
-    transition: background .35s ease, color .35s ease;
-    color: #7E7D7B;
-    margin: 0 70px;
-    
-    &:first-child {
-        border-top: 1px solid var(--color-black);
+    .rail {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        height: 100%;
+        padding: 40px 0px;
     }
-    
-    .year {
-        transition: color .35s ease;
-    }
-    
-    h3 {
-        margin: 0 0 8px 0;
-        transition: color .35s ease;
-    }
-    
-    p {
-        font-size: var(--font-size-content-small);
-    }
-    
-    &.active {
-        border-bottom: 1px solid var(--color-bleu);
-        background: var(--color-bleu);
-        margin: 0;
-        .year,
-        h3,
-        h4,
+
+    .point {
+        height: 100%;
+        position: relative;
+        display: grid;
+        padding: 22px clamp(20px, 3vw, 32px);
+        grid-template-columns: 90px 1fr;
+        align-items: center;
+        gap: 50px;
+        border-bottom: 1px solid var(--color-black);
+        transition:
+            background 0.35s ease,
+            color 0.35s ease;
+        color: #7e7d7b;
+        margin: 0 70px;
+
+        &:first-child {
+            border-top: 1px solid var(--color-black);
+        }
+
+        .year {
+            transition: color 0.35s ease;
+        }
+
+        h3 {
+            margin: 0 0 8px 0;
+            transition: color 0.35s ease;
+        }
+
         p {
-            color: var(--color-black);
-            margin: 0 70px;
+            font-size: var(--font-size-content-small);
+        }
 
-      }
+        &.active {
+            border-bottom: 1px solid var(--color-bleu);
+            background: var(--color-bleu);
+            margin: 0;
+            .year,
+            h3,
+            h4,
+            p {
+                color: var(--color-black);
+                margin: 0 70px;
+            }
+        }
     }
-  }
 
-  .progress {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--color-white);
+    .progress {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--color-white);
 
-    &-fill {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 0%;
-      background: var(--color-bleu);
-      transform-origin: top;
+        &-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 0%;
+            background: var(--color-bleu);
+            transform-origin: top;
+        }
     }
-  }
 }
 
-@media (width <= $breakpoint-sm){
+@media (width <= $breakpoint-sm) {
     .cheminement {
-        .rail{
+        .rail {
             padding: 0;
         }
-        .scroller{
+        .scroller {
             height: 100vh;
         }
-        .stage{
+        .stage {
             grid-template-columns: 1fr;
         }
 
-        .point{
+        .point {
             padding: 10px;
             margin: 0;
             &.active {
@@ -124,10 +123,8 @@
                 h4,
                 p {
                     margin: 0;
-    
+                }
             }
         }
-
-    }
     }
 }

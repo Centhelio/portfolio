@@ -45,35 +45,33 @@
     gap: 100px;
 }
 
-
-@media (width <= $breakpoint-sm){
-    .hero{
-        grid-template-columns: 1fr; 
-        gap: 30px;   
+@media (width <= $breakpoint-sm) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
-    .hero__media{
+    .hero__media {
         order: 1;
 
-        img{
+        img {
             height: 100%;
         }
     }
 
-    .hero__content .wrapper{
-        span{
+    .hero__content .wrapper {
+        span {
             display: none;
         }
         height: auto;
         gap: 30px;
-        
     }
-    
+
     .hero__content {
         order: 2;
     }
 
-    .hero__information{
+    .hero__information {
         gap: 30px;
     }
 }

@@ -24,46 +24,45 @@
     }
 }
 
-
 .hover-text {
-  cursor: none;
+    cursor: none;
 }
 
 .intro-text {
-  position: relative;
+    position: relative;
 }
 
 .hover-image {
-  width: 300px; /* Adjust the width as needed */
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  visibility: hidden;
-  z-index: 10;
-  pointer-events: none;
-  cursor: none;
-  overflow: hidden;
+    width: 300px; /* Adjust the width as needed */
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    z-index: 10;
+    pointer-events: none;
+    cursor: none;
+    overflow: hidden;
 }
 
-.larger{
+.larger {
     width: 400px;
 }
 
 /* Constrain the size of the img element inside the div */
 .hover-image img {
-  width: 100%; 
-  height: auto;
-  display: block;
-  border-radius: 5px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
 }
 
 .dimmed {
-  transition: opacity 0.1s ease;
+    transition: opacity 0.1s ease;
 }
 
-@media (width <= $breakpoint-sm){
-    .passions .wrapper{
+@media (width <= $breakpoint-sm) {
+    .passions .wrapper {
         height: 50vh;
     }
 }

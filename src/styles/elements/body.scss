@@ -3,6 +3,9 @@
    Le body permet d'initialiser les propriétés générales de la page.
    Les éléments de la page vont hérités des propriétés inscrite dans body
    ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     //background-color: var(--color-bg-primary);

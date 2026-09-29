@@ -15,7 +15,7 @@
         position: relative;
         padding: 0px 10px;
         display: inline-block;
-        
+
         .highlight-bg {
             border-radius: 3px;
             position: absolute;
@@ -43,15 +43,15 @@
     }
 }
 
-@media (width <= $breakpoint-sm){
-    .titre{
+@media (width <= $breakpoint-sm) {
+    .titre {
         flex-direction: column;
         gap: 30px;
         padding: 50px 0 30px 0;
 
-        h2, p{
+        h2,
+        p {
             width: 100%;
         }
-
     }
 }

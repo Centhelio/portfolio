@@ -25,6 +25,11 @@
         font-weight: 500;
     }
 
+    .p-small {
+        width: 70%;
+        font-size: 14px !important;
+        text-align: center;
+    }
 }
 
 .footer__contact {
@@ -39,21 +44,14 @@
     text-align: end;
 }
 
-.declaration{
+.declaration {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.p-small{
-    width: 70%;
-    font-size: 14px !important;
-    text-align: center;
-}
-
-
-@media (width <= $breakpoint-sm){
-    .footer .grids{
+@media (width <= $breakpoint-sm) {
+    .footer .grids {
         grid-template-columns: 1fr;
     }
 }

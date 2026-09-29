@@ -24,11 +24,11 @@
     }
 }
 
-@media (width <= $breakpoint-sm){
+@media (width <= $breakpoint-sm) {
     .hub {
         width: 100%;
         ul {
-            grid-template-columns: 1fr 1fr ;
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
     }
