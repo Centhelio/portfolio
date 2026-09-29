@@ -6,6 +6,7 @@ import HoverImage from './components/HoverImage.js';
 import HighlightText from './components/HighlightText.js';
 import Ball from './components/Ball.js';
 import Carousel from './components/Carousel.js'
+import PageTransition from './components/PageTransition.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -19,6 +20,7 @@ export default class ComponentFactory {
       HighlightText,
       Ball, 
       Carousel,
+      PageTransition,
     };
     this.init();
   }
