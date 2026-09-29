@@ -11,6 +11,7 @@
     background-color: var(--color-vert);
     border-radius: 50%;
     pointer-events: none; // essentiel : évite que la ball bloque les clics
+    z-index: 99;
 
     transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
 

@@ -1,0 +1,43 @@
+.direction_visuel{
+    .images{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        
+    }
+}
+
+.contexte{
+    .images{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        
+    }
+}
+
+
+.image{
+    width: 100%;
+
+    img{
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+.swiper-slide {
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-select: none;
+    
+  }
+}
+
+.prototype{
+    padding: 100px 0;
+    height: 100vh;
+}

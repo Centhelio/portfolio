@@ -4,6 +4,7 @@ export default class Ball {
     constructor(element) {
         this.element = element;
         this.ball = document.querySelector('.cursor__ball');
+        this.textSpan = this.ball.querySelector('.cursor__ball-text-span');
 
         this.init();
     }
@@ -11,7 +12,6 @@ export default class Ball {
     init() {
         gsap.set(this.ball, { xPercent: -50, yPercent: -50 });
 
-        // Crée UNE SEULE FOIS les fonctions de tween réutilisables
         this.xTo = gsap.quickTo(this.ball, "x", { duration: 0.5, ease: "power2.out" });
         this.yTo = gsap.quickTo(this.ball, "y", { duration: 0.5, ease: "power2.out" });
 
@@ -20,7 +20,7 @@ export default class Ball {
 
         const watchs = document.querySelectorAll('[data-interactive]');
         watchs.forEach((watch) => {
-            watch.addEventListener('mouseenter', this.addActive.bind(this));
+            watch.addEventListener('mouseenter', () => this.addActive(watch));
             watch.addEventListener('mouseleave', this.removeActive.bind(this));
         });
     }
@@ -30,8 +30,9 @@ export default class Ball {
         this.yTo(e.clientY);
     }
 
-    addActive() {
+    addActive(target) {
         this.ball.classList.add('is-active');
+        this.textSpan.textContent = target.dataset.cursorText || '';
     }
 
     removeActive() {
