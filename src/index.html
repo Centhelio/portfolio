@@ -1,19 +1,26 @@
 {% include '_partials/_header.html' %}
 
-<div class="hero">
-    <div class="hero__content">
+<div class="hero js-horiz" data-component="Scroller">
+    <div class="hero__content js-panel">
         <div class="wrapper">
             <span></span>
             <h1 class="h1-big">Nathan Larose</h1>
 
             <div class="hero__information">
                 <p>Recherche de stage en desing UX</p>
-                <p>Designer d’exprériances et d’interfaces spécialisé dans le web</p>
+                <p>
+                    Designer
+                    <span class="highlight highlight--rose">
+                        <span class="highlight-bg"></span>
+                        d’exprériances et d’interfaces
+                    </span>
+                    spécialisé dans le web
+                </p>
             </div>
         </div>
     </div>
 
-    <div class="hero__media">
+    <div class="hero__media js-panel">
         <img src="assets/images/hero__nathan.jpg" alt="" />
     </div>
 </div>
@@ -32,7 +39,7 @@
             <li>
                 <a href="https://www.linkedin.com/in/nathan-larose-013556300/" data-interactive data-cursor-text="Voir plus">
                     <svg class="icon icons-lg hub--icons">
-                        <use xlink:href="#icon-Linkedin"></use>
+                        <use xlink:href="#icon-linkedin"></use>
                     </svg>
                     Linkedin
                 </a>
@@ -93,9 +100,8 @@
                 outils et langages pour créer des
                 <span class="highlight highlight--rose">
                     <span class="highlight-bg"></span>
-                    expériences numériques
+                    expériences numériques.
                 </span>
-                .
             </p>
         </div>
     </div>

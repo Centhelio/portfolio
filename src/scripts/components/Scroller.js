@@ -21,26 +21,26 @@ export default class Scroller {
   }
 
   init() {
-    const scroller = ScrollSmoother.create({
+    /* const scroller = ScrollSmoother.create({
       smooth: 2,
       effects: true,
       smoothTouch: 0.1,
       onUpdate: this.onUpdateScroll.bind(this),
       onStop: this.onStopScroll.bind(this),
       ease: 'expo.out',
-    });
+    }); */
   }
 
-  onUpdateScroll(self) {
+  /*   onUpdateScroll(self) {
     if (this.options.hasSkew) this.updateSkew(self);
-  }
-
+  } */
+  /* 
   onStopScroll(self) {
     if (this.options.hasSkew) this.stopSkew();
-  }
+  } */
 
   // SKEW CONTROLS
-  initSkew() {
+  /*   initSkew() {
     this.skewSetter = gsap.quickTo('img', 'skewY');
   }
 
@@ -72,10 +72,11 @@ export default class Scroller {
         markers: true,
       });
     }
-  }
+  } */
 
   //SECTION HORIZONTAL
   initHoriz() {
+    console.log('allo');
     const sectionHoriz = this.element.querySelector('.js-horiz');
     const panels = sectionHoriz.querySelectorAll('.js-panel');
     const nbPanels = panels.length - 1;
@@ -95,15 +96,15 @@ export default class Scroller {
   }
 
   setOptions() {
-    if ('skew' in this.element.dataset) {
+    /* if ('skew' in this.element.dataset) {
       this.options.hasSkew = true;
       this.initSkew();
-    }
+    } */
 
-    if ('pinItems' in this.element.dataset) {
+    /* if ('pinItems' in this.element.dataset) {
       this.options.hasPinItems = true;
       this.initPins();
-    }
+    } */
 
     if (this.element.querySelector('.js-horiz')) {
       this.initHoriz();
