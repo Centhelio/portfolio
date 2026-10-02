@@ -1,7 +1,9 @@
 .hero {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
+    overflow: hidden;
 
     .h1-big {
         font-family: var(--font-primary);
@@ -9,25 +11,9 @@
     }
 }
 
-.hero__media {
-    width: 100%;
-    height: auto;
-    order: 2;
-
-    img {
-        display: block;
-        align-items: end;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-    }
-    overflow: hidden;
-}
-
+// ---------- CONTENU (colonne de gauche) ----------
 .hero__content {
     height: 100%;
-    order: 1;
 }
 
 .hero__content .wrapper {
@@ -35,9 +21,8 @@
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    padding-bottom: 50px;
-
     height: 100vh;
+    padding-bottom: 50px;
 }
 
 .hero__information {
@@ -45,30 +30,52 @@
     gap: 100px;
 }
 
+// ---------- MEDIA (desktop : collé à droite, 50 % de large) ----------
+// Sorti du flux de la grille pour pouvoir s'agrandir par-dessus le contenu
+.hero__media {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+// ---------- MOBILE : tout est empilé, pas d'animation ----------
 @media (width <= $breakpoint-sm) {
     .hero {
         grid-template-columns: 1fr;
         gap: 30px;
+        height: auto;
     }
 
     .hero__media {
+        position: relative; // retour dans le flux
         order: 1;
-
-        img {
-            height: 100%;
-        }
-    }
-
-    .hero__content .wrapper {
-        span {
-            display: none;
-        }
+        width: 100%;
         height: auto;
-        gap: 30px;
     }
 
     .hero__content {
         order: 2;
+    }
+
+    .hero__content .wrapper {
+        height: auto;
+        gap: 30px;
+
+        span {
+            display: none;
+        }
     }
 
     .hero__information {

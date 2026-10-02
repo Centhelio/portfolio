@@ -17,97 +17,34 @@ export default class Scroller {
     this.element = element;
 
     this.setOptions();
-    this.init();
-  }
-
-  init() {
-    /* const scroller = ScrollSmoother.create({
-      smooth: 2,
-      effects: true,
-      smoothTouch: 0.1,
-      onUpdate: this.onUpdateScroll.bind(this),
-      onStop: this.onStopScroll.bind(this),
-      ease: 'expo.out',
-    }); */
-  }
-
-  /*   onUpdateScroll(self) {
-    if (this.options.hasSkew) this.updateSkew(self);
-  } */
-  /* 
-  onStopScroll(self) {
-    if (this.options.hasSkew) this.stopSkew();
-  } */
-
-  // SKEW CONTROLS
-  /*   initSkew() {
-    this.skewSetter = gsap.quickTo('img', 'skewY');
-  }
-
-  updateSkew(self) {
-    const velocity = self.getVelocity;
-    const force = 5;
-    let skew = gsap.utils.mapRange(-1000, 1000, -force, force, velocity);
-    skew = gsap.utils.clamp(-force, force, skew);
-
-    this.skewSetter(skew);
-  }
-
-  stopSkew() {
-    this.skewSetter(0);
-  }
-
-  // PIN CONTROLS
-  initPins() {
-    const pinnedItems = this.element.querySelectorAll('.js-pinned');
-
-    for (let i = 0; i < pinnedItems.length; i++) {
-      const pinnedItem = pinnedItems[i];
-
-      ScrollTrigger.create({
-        pin: pinnedItem,
-        trigger: pinnedItem.parentElement,
-        start: 'center center',
-        end: '80% center',
-        markers: true,
-      });
-    }
-  } */
-
-  //SECTION HORIZONTAL
-  initHoriz() {
-    console.log('allo');
-    const sectionHoriz = this.element.querySelector('.js-horiz');
-    const panels = sectionHoriz.querySelectorAll('.js-panel');
-    const nbPanels = panels.length - 1;
-    const buffer = 200;
-
-    gsap.to(panels, {
-      xPercent: -100 * nbPanels,
-      ease: 'none',
-      scrollTrigger: {
-        pin: true,
-        trigger: sectionHoriz,
-        scrub: 1,
-        snap: 1 / nbPanels,
-        end: () => '+=' + (sectionHoriz.offsetWidth + buffer),
-      },
-    });
   }
 
   setOptions() {
-    /* if ('skew' in this.element.dataset) {
-      this.options.hasSkew = true;
-      this.initSkew();
-    } */
-
-    /* if ('pinItems' in this.element.dataset) {
-      this.options.hasPinItems = true;
-      this.initPins();
-    } */
-
     if (this.element.querySelector('.js-horiz')) {
-      this.initHoriz();
+      this.initHero();
     }
+  }
+
+  initHero() {
+    const hero = this.element.querySelector('.js-horiz');
+    const content = hero.querySelector('.hero__content');
+    const media = hero.querySelector('.hero__media');
+
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 769px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: hero,
+          start: 'top top',
+          end: '+=100%',
+          pin: true,
+          scrub: 1,
+        },
+      });
+
+      tl.to(content, { xPercent: -30, opacity: 1, ease: 'none' }, 0)
+        .to(media, { width: '100%', ease: 'none' }, 0);
+    });
   }
 }
