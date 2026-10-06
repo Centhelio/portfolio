@@ -5,8 +5,27 @@ export default class Carousel {
     this.element = element;
 
     this.options = {
-      slidesPerView: 3,
+      slidesPerView: 2,
       spaceBetween: 10,
+      
+      // Responsive breakpoints
+      breakpoints: {
+        // When window width is >= 640px
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        // When window width is >= 768px
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+        // When window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+      },
 
       pagination: {
         el: this.element.querySelector('.swiper-pagination'),

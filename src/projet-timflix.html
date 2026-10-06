@@ -1,20 +1,26 @@
 {% include '_partials/_header.html' %}
-
-<div class="hero">
-    <div class="hero__content">
-        <div class="wrapper">
-            <span></span>
-            <h1 class="">Pour les amoureux de films</h1>
-
-            <div class="hero__information">
-                <p>Application Timflix</p>
-                <p>Désing UI/UX d’une application de cinéma</p>
+<div data-component="Scroller">
+    <div class="hero js-horiz" >
+        <div class="hero__content js-panel">
+            <div class="wrapper">
+                <span></span>
+                <h1 class="">Pour les amoureux de films</h1>
+                
+                <div class="hero__information">
+                    <p>Application Timflix</p>
+                    <p>
+                        Désing UI/UX d’une application de cinéma
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="hero__media">
-        <img src="assets/images/timflix/timflix-hero.jpg" alt="" />
+        
+        <div class="hero__media js-panel">
+            <picture>
+                <source media="(max-width: 768px)" srcset="assets/images/timflix/hero__timflix-mobile.jpg">
+                <img src="assets/images/timflix/hero__timflix-desktop.jpg" alt="Portrait de Nathan Larose">
+            </picture>
+        </div>
     </div>
 </div>
 
@@ -31,7 +37,17 @@
     <div class="wrapper">
         <div class="titre" data-component="HighlightText">
             <h3>Le contexte</h3>
-            <p>Dans le cours de design d’interface, nous devions créer une application de cinéma afin de nous pratiquer à prototyper nos maquettes.</p>
+            <p>Dans le cours de 
+                <span class="highlight highlight--jaune">
+                    <span class="highlight-bg"></span>
+                    design d’interface,
+                </span>
+                nous devions créer une application de cinéma afin de nous pratiquer à 
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>
+                    prototyper nos maquettes.
+                </span>
+            </p>
         </div>
     </div>
 
@@ -50,7 +66,21 @@
         <div class="titre" data-component="HighlightText">
             <h3>L’objectif</h3>
             <p>
-                Rendre l’application intuitive et facilement navigable. Elle devait également respecter la grille de correction. Finalement, le système de vote
+                Rendre l’application 
+                <span class="highlight highlight--jaune">
+                    <span class="highlight-bg"></span>
+                    intuitive
+                </span>
+                et 
+                <span class="highlight highlight--vert">
+                    <span class="highlight-bg"></span>
+                    facilement navigable. 
+                </span>
+                Elle devait également respecter la grille de correction. Finalement, le 
+                <span class="highlight highlight--bleu">
+                    <span class="highlight-bg"></span>
+                    système de vote
+                </span>
                 devait être original.
             </p>
         </div>
@@ -93,13 +123,86 @@
     </div>
 </section>
 
+<section class="processus technique">
+    <div class="wrapper">
+        <div class="titre" data-component="HighlightText">
+            <h3>Environement technique</h3>
+            <p>
+                Les différents outils, logiciels et techniques utilisés pour ce projet
+            </p>
+        </div>
+    </div>
+    <div class="">
+        <div class="wrapper">
+            <div class="listes labels">
+                <p>sortes</p>
+                <p>compétence</p>
+                <p>en gros</p>
+            </div>
+        </div>
+    </div>
+    <div class="full__projet pink">
+        <div class="wrapper">
+            <a class="projet listes hover-text" data-hover="dynamiques">
+                <h4>Logiciel</h4>
+                <h4>Figma</h4>
+                <p>
+                    Conception de maquettes et de prototypes interactifs
+                </p>
+            </a>
+        </div>
+    </div>
+    <div class="full__projet bleu">
+        <div class="wrapper">
+            <a class="projet listes hover-text" data-hover="dynamiques">
+                <h4>Outil</h4>
+                <h4>Adobe Color</h4>
+                <p>Création d’une palette de couleur uniformes</p>
+            </a>
+        </div>
+    </div>
+    <div class="full__projet vert">
+        <div class="wrapper">
+            <a class="projet listes hover-text" data-hover="dynamiques">
+                <h4>Logiciel</h4>
+                <h4>Pinterest</h4>
+                <p>Recherche de comparable et inspiration</p>
+            </a>
+        </div>
+    </div>
+    <div class="full__projet jaune">
+        <div class="wrapper">
+            <a class="projet listes hover-text" data-hover="dynamiques">
+                <h4>Technique</h4>
+                <h4>Lisibilité</h4>
+                <p>Rendre mes les contenues claires et simple a comprendre.</p>
+            </a>
+        </div>
+    </div>
+    </div>
+</section>
+
 <section class="direction_visuel">
     <div class="wrapper">
         <div class="titre" data-component="HighlightText">
             <h3>Ma direction visuel</h3>
             <p>
-                Personnellement, je suis parti sur une palette de couleurs bleue et jaune. Des couleurs le fun et lisibles sur la plupart des arrière-plans. Ma
-                typographie apportait également un aspect le fun.
+                Personnellement, je suis parti sur une palette de 
+                <span class="highlight highlight--bleu">
+                    <span class="highlight-bg"></span>
+                    couleurs
+                </span>
+                bleue et jaune. Des couleurs le fun et 
+                <span class="highlight highlight--jaune">
+                    <span class="highlight-bg"></span>
+                    lisibles
+                </span>
+                sur la plupart des arrière-plans. Ma
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>
+                    typographie
+                </span>
+                apportait également un aspect le fun.
             </p>
         </div>
     </div>
@@ -125,12 +228,19 @@
     <div class="wrapper">
         <div class="titre" data-component="HighlightText">
             <h3>Mon processus</h3>
-            <p>Voici les 5 étapes majeures de ce projet qui l’ont mené à sa complétion.</p>
+            <p>
+                Voici les 
+                <span class="highlight highlight--rose">
+                    <span class="highlight-bg"></span>
+                    5 étapes majeures 
+                </span>
+                de ce projet qui l’ont mené à sa complétion.
+            </p>
         </div>
     </div>
     <div class="">
         <div class="wrapper">
-            <div class="projet listes labels">
+            <div class="listes labels">
                 <p>étape</p>
                 <p>titre</p>
                 <p>en gros</p>
@@ -205,7 +315,16 @@
         <div class="titre" data-component="HighlightText">
             <h3>Ce que j’ai appris</h3>
             <p>
-                Dans ce projet, j’ai beaucoup appris à prototyper avec Figma. Puisque j’étais encore nouveau avec ce logiciel, ce projet a été un élément clé
+                Dans ce projet, j’ai beaucoup appris à 
+                <span class="highlight highlight--jaune">
+                    <span class="highlight-bg"></span>
+                    prototyper
+                </span>
+                avec Figma. Puisque j’étais encore nouveau avec ce logiciel, ce projet a été un 
+                <span class="highlight highlight--vert">
+                    <span class="highlight-bg"></span>
+                   élément clé
+                </span>
                 dans ma progression.
             </p>
         </div>

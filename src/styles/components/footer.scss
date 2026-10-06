@@ -51,7 +51,27 @@
 }
 
 @media (width <= $breakpoint-sm) {
+    .footer{
+        padding-top: 60px;
+    }
     .footer .grids {
         grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .footer__contact {
+        text-align: center;
+    }
+
+    .footer__localisation {
+        text-align: center;
+    }
+
+    .footer__media {
+        text-align: center;
+    }
+
+    .declaration{
+        font-size: 12px !important;
     }
 }

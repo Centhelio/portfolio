@@ -26,25 +26,23 @@ export default class Scroller {
   }
 
   initHero() {
-    const hero = this.element.querySelector('.js-horiz');
-    const content = hero.querySelector('.hero__content');
-    const media = hero.querySelector('.hero__media');
+  const hero = this.element.querySelector('.js-horiz');
+  const content = hero.querySelector('.hero__content');
 
-    const mm = gsap.matchMedia();
+  const mm = gsap.matchMedia();
 
-    mm.add('(min-width: 769px)', () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: hero,
-          start: 'top top',
-          end: '+=100%',
-          pin: true,
-          scrub: 1,
-        },
-      });
-
-      tl.to(content, { xPercent: -30, opacity: 1, ease: 'none' }, 0)
-        .to(media, { width: '100%', ease: 'none' }, 0);
+  mm.add('(min-width: 769px)', () => {
+    gsap.to(content, {
+      xPercent: -100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: hero,
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        scrub: 1,
+      },
     });
-  }
+  });
+}
 }

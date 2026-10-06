@@ -11,9 +11,29 @@
     }
 }
 
-// ---------- CONTENU (colonne de gauche) ----------
+// ---------- MEDIA : plein écran, en arrière-plan ----------
+.hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+// ---------- CONTENT : moitié gauche, par-dessus le media ----------
 .hero__content {
+    position: relative;
+    z-index: 2;
+    grid-column: 1;
     height: 100%;
+    background-color: var(--color-white);
 }
 
 .hero__content .wrapper {
@@ -30,26 +50,6 @@
     gap: 100px;
 }
 
-// ---------- MEDIA (desktop : collé à droite, 50 % de large) ----------
-// Sorti du flux de la grille pour pouvoir s'agrandir par-dessus le contenu
-.hero__media {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    z-index: 2;
-    overflow: hidden;
-
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-    }
-}
-
 // ---------- MOBILE : tout est empilé, pas d'animation ----------
 @media (width <= $breakpoint-sm) {
     .hero {
@@ -59,14 +59,22 @@
     }
 
     .hero__media {
-        position: relative; // retour dans le flux
+        position: relative;
+        inset: auto;
         order: 1;
-        width: 100%;
-        height: auto;
+        height: 450px;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+
+        img{
+            width: 100%;
+        }
     }
 
     .hero__content {
         order: 2;
+        background-color: transparent;
     }
 
     .hero__content .wrapper {

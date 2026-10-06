@@ -6,6 +6,9 @@ export default class Timeline {
     this.element = element;
 
     gsap.registerPlugin(ScrollTrigger);
+    // évite les refresh quand la barre d'Safari apparaît/disparaît
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
     this.points = gsap.utils.toArray('.point', this.element);
     this.photoImg = this.element.querySelector('#photoImg');
     this.fill = this.element.querySelector('#progressFill');
@@ -19,8 +22,7 @@ export default class Timeline {
   init() {
     this.bindClicks();
 
-    // bascule automatique selon le breakpoint — aligne cette valeur
-    // avec ta variable SCSS $breakpoint-sm
+    // aligne ces valeurs avec ta variable SCSS $breakpoint-sm (768px)
     this.mm = gsap.matchMedia();
 
     this.mm.add('(min-width: 769px)', () => {
@@ -28,19 +30,10 @@ export default class Timeline {
         trigger: this.scroller,
         start: 'top top',
         end: 'bottom bottom',
-        onUpdate: (self) => {
-          this.fill.style.height = self.progress * 100 + '%';
-          const index = Math.min(
-            this.points.length - 1,
-            Math.floor(self.progress * this.points.length),
-          );
-          this.setActive(index);
-        },
+        onUpdate: (self) => this.update(self),
+        onRefresh: (self) => this.update(self), // état correct au chargement / resize
       });
 
-      this.setActive(0);
-
-      // cleanup quand on repasse en-dessous du breakpoint
       return () => {
         this.trigger?.kill();
         this.trigger = null;
@@ -53,6 +46,15 @@ export default class Timeline {
     });
   }
 
+  update(self) {
+    this.fill.style.height = self.progress * 100 + '%';
+    const index = Math.min(
+      this.points.length - 1,
+      Math.floor(self.progress * this.points.length),
+    );
+    this.setActive(index);
+  }
+
   bindClicks() {
     this.points.forEach((point, index) => {
       point.addEventListener('click', () => this.goTo(index));
@@ -61,8 +63,7 @@ export default class Timeline {
 
   goTo(index) {
     if (this.trigger) {
-      // desktop : on scroll jusqu'à la position correspondante,
-      // ScrollTrigger reprend la main ensuite tout seul
+      // desktop / tablette : on scrolle jusqu'à la position correspondante
       const progress = (index + 0.5) / this.points.length;
       const target =
         this.trigger.start + progress * (this.trigger.end - this.trigger.start);
@@ -79,14 +80,16 @@ export default class Timeline {
 
     this.points.forEach((p, i) => p.classList.toggle('active', i === index));
 
-    const pointImg = this.points[index].querySelector('.point-img');
-    const img = pointImg.src;
+    const nextSrc = this.points[index].querySelector('.point-img')?.src;
+    if (!nextSrc) return;
 
+    // évite que plusieurs fondus se chevauchent (tap / scroll rapide)
+    gsap.killTweensOf(this.photoImg);
     gsap.to(this.photoImg, {
       opacity: 0,
       duration: 0.25,
       onComplete: () => {
-        this.photoImg.src = img;
+        this.photoImg.src = nextSrc;
         gsap.to(this.photoImg, { opacity: 1, duration: 0.35 });
       },
     });
