@@ -13,3 +13,9 @@
         gap: 30px;
     }
 }
+
+@media (width <= $breakpoint-sm) {
+    .buttons {
+        flex-direction: column;
+    }
+}
