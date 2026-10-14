@@ -34,31 +34,76 @@
     </div>
 
     <header class="header" data-component="Header" data-threshold="0.1">
-        <nav class="nav-primary">
-          <ul class="nav__menu">
+      <a href="index.html" class="header__brand">
+        <img src="assets/images/logo.svg" alt="">
+      </a>
+    
+      <nav class="nav__contact" aria-label="Contact">
+        <div class="hub">
+          <ul class="hub__information">
             <li>
-              <a href="index.html" class="nav__item">Moi</a>
+              <a href="projets.html" aria-label="Projets" data-interactive data-cursor-text="Voir plus">
+                <svg class="icon icon-lg hub--icons">
+                  <use xlink:href="#icon-instagram"></use>
+                </svg>
+              </a>
             </li>
             <li>
-              <a href="projets.html" class="nav__item">Projets</a>
+              <a
+                href="https://www.linkedin.com/in/nathan-larose-013556300/"
+                aria-label="LinkedIn"
+                data-interactive
+                data-cursor-text="Voir plus"
+              >
+                <svg class="icon icon-lg hub--icons">
+                  <use xlink:href="#icon-linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="assets/images/CV_nathan_larose_2026.pdf"
+                download=""
+                aria-label="Télécharger mon CV"
+                data-interactive
+                data-cursor-text="Voir plus"
+              >
+                <svg class="icon icon-lg hub--icons">
+                  <use xlink:href="#icon-download"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:nathanlarose07@gmail.com"
+                aria-label="M'écrire un courriel"
+                data-interactive
+                data-cursor-text="Voir plus"
+              >
+                <svg class="icon icon-lg hub--icons">
+                  <use xlink:href="#icon-contact"></use>
+                </svg>
+              </a>
             </li>
           </ul>
-        </nav>
-
-        <a class="nav__email invert">nathanlarose07@gmail.com</a>
-
-        <nav class="nav__contact">
-          <a class="nav__item invisible" href="#">WBWBWNN</a>
+        </div>
+      </nav>
+    
+      <nav class="nav-primary" aria-label="Navigation principale">
+        <ul class="nav__menu">
           <li>
-            <a class="nav__item" href="#">On jase</a>
+            <a href="index.html" class="nav__item">Moi</a>
           </li>
-
-        </nav>
-
-        <button class="header__toggle js-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+          <li>
+            <a href="projets.html" class="nav__item">Projets</a>
+          </li>
+        </ul>
+      </nav>
+    
+      <button class="header__toggle js-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
 

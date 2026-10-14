@@ -1,20 +1,56 @@
 /* ==========================================================================
-   Header
+   Header / component
+   Mobile first : menu plein écran (fond crème) + hub en bas, burger rond.
+   Desktop (>= $breakpoint-md) : navigation inline dans le header.
    ========================================================================== */
 .header {
     --header-height: 100px;
+
     width: 100%;
+    height: var(--header-height);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--spacing-sm);
 
-    position: absolute;
+    /* "fixed" : le header ne prend pas de place dans la page,
+       il suit le scroll et se cache au scroll vers le bas. */
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 99;
-    height: var(--header-height);
     transition: transform 0.4s ease-out;
+
+    /* Fond du header : transparent tout en haut de la page,
+       puis il devient blanc pendant les 100 premiers px de scroll */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-white);
+        opacity: 0;
+        z-index: 2;
+
+        @supports (animation-timeline: scroll()) {
+            animation: header-bg-fade linear both;
+            animation-timeline: scroll(root block);
+            animation-range: 0 var(--header-height);
+        }
+    }
+
+    /* Menu mobile ouvert : le fond du header disparaît pour se fondre dans le menu */
+    .nav-is-active &::before {
+        animation: none;
+        opacity: 0;
+    }
+
+    .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {
+        transform: translateY(-100%);
+    }
 
     .nav__email {
         background-color: var(--color-white);
@@ -23,11 +59,32 @@
         font-weight: 600;
     }
 
-    ul {
-        display: flex;
-        gap: 40px;
+    /* ---------- Hub (4 pastilles) ---------- */
+    .hub {
+        ul {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-primary);
+            background-color: var(--color-bleu);
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+        }
     }
 
+    /* ---------- Pastilles des listes (style desktop) ---------- */
     li {
         position: relative;
         list-style: none;
@@ -38,6 +95,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        isolation: isolate; /* garde le ::before (z-index -1) visible au-dessus du fond du header */
 
         &::before {
             content: '';
@@ -49,15 +107,6 @@
             transition: transform 0.4s ease;
             z-index: -1;
         }
-
-        &:hover,
-        &:active {
-            color: var(--color-primary);
-
-            &::before {
-                transform: scale(1);
-            }
-        }
     }
 
     .nav__item {
@@ -66,68 +115,139 @@
         position: relative;
     }
 
-    .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {
-        transform: translateY(-100%) translateY(4px);
-    }
-
+    /* Desktop : 3 colonnes [logo | hub | menu]. Les colonnes latérales ont toujours
+       la même largeur (1fr), donc le hub reste centré dans la page. */
     @media (width >= $breakpoint-md) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
         padding: 0 var(--spacing-md);
     }
 
+    /* ---------- Mobile / tablette : liens du menu + hub ---------- */
     @media (width <= $breakpoint-md) {
-        li {
-            width: 100%;
+        /* Liens "Moi" / "Projets" : grands, alignés à gauche */
+        .nav__menu li {
+            width: auto;
             height: auto;
+            justify-content: flex-start;
+            overflow: visible;
 
             &::before {
-                background-color: none;
+                background-color: transparent;
             }
         }
-        .nav__item {
-            font-size: var(--font-size-h2) !important;
+
+        .nav__menu .nav__item {
+            font-size: var(--font-size-h1);
+            font-weight: inherit;
+            text-transform: none;
+        }
+
+        /* Hub : 4 pastilles de 45px sur une ligne, centrées */
+        .hub ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 0;
+        }
+
+        .hub li {
+            width: auto;
+            height: auto;
+            overflow: visible;
+        }
+
+        .hub a {
+            width: 45px;
+            height: 45px;
         }
     }
 }
 
+@keyframes header-bg-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Logo au-dessus du fond du header */
+.header__brand {
+    max-width: 50px;
+    position: relative;
+    z-index: 10;
+
+    @media (width >= $breakpoint-md) {
+        justify-self: start;
+    }
+}
+
 /* ==========================================================================
-   Bouton burger (toggle du menu mobile)
+   Bouton burger : pastille ronde crème, trois barres noires
    ========================================================================== */
 .header__toggle {
+    --toggle-size: 50px;
     --bar-height: 3px;
-    --bar-spacer: 6px;
-    --bar-width: 30px;
+    --bar-spacer: 3px;
+    --bar-width: 20px;
 
-    background-color: transparent;
     border: none;
+    border-radius: 100%;
     outline: none;
     cursor: pointer;
     padding: 0;
     position: relative;
-    width: var(--bar-width);
-    height: var(--bar-width);
+    width: var(--toggle-size);
+    height: var(--toggle-size);
     z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+
+    background-color: var(--color-white);
+
+    &:focus-visible {
+        outline: 2px solid var(--color-black);
+        outline-offset: 2px;
+    }
 
     span {
         background-color: var(--color-black);
-        border-radius: 3px;
+        border-radius: 2px;
         height: var(--bar-height);
-        width: 100%;
+        width: var(--bar-width);
         position: absolute;
         top: calc(50% - var(--bar-height) / 2);
         left: calc(50% - var(--bar-width) / 2);
         transition: 0.3s all ease-out;
+
+        &:nth-child(1) {
+            top: calc(50% - var(--bar-height) / 2 - var(--bar-height) - var(--bar-spacer));
+        }
+
+        &:nth-child(3) {
+            top: calc(50% - var(--bar-height) / 2 + var(--bar-height) + var(--bar-spacer));
+        }
     }
 
-    span:nth-child(1) {
-        top: calc(
-            50% - var(--bar-height) / 2 - var(--bar-height) - var(--bar-spacer)
-        );
-    }
+    /* État "menu ouvert" : le burger devient une croix */
+    .nav-is-active & {
+        span {
+            top: calc(50% - var(--bar-height) / 2);
 
-    span:nth-child(3) {
-        top: calc(
-            50% - var(--bar-height) / 2 + var(--bar-height) + var(--bar-spacer)
-        );
+            &:nth-child(1) {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: scaleX(0);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
     }
 
     @media (width >= $breakpoint-md) {
@@ -135,107 +255,180 @@
     }
 }
 
-/* État "menu ouvert" du burger */
-.nav-is-active .header__toggle span {
-    top: calc(50% - var(--bar-height) / 2);
-}
-.nav-is-active .header__toggle span:nth-child(1) {
-    transform: rotate(45deg);
-}
-.nav-is-active .header__toggle span:nth-child(2) {
-    transform: scaleX(0);
-}
-.nav-is-active .header__toggle span:nth-child(3) {
-    transform: rotate(-45deg);
-}
-
 /* ==========================================================================
    Navigation principale
    ========================================================================== */
 
-/* --- Mobile first : menu plein écran --- */
+/* --- Mobile first : menu plein écran, fond crème --- */
 .nav-primary {
     background-color: var(--color-white);
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
+    height: 100dvh; 
     width: 100%;
     padding-top: var(--header-height);
+    padding-bottom: 100px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     overflow-y: auto;
 
     transform: translateX(100%);
-    transition: transform 0.6s ease-out;
+    visibility: hidden;
+    transition:
+        transform 0.6s ease-out,
+        visibility 0s linear 0.6s;
 
     ul {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        gap: 40px;
+        align-items: center; 
+        gap: 20px;
         list-style: none;
-        padding: 0;
+        padding: 0 var(--spacing-sm);
         margin: 0;
         width: 100%;
+        box-sizing: border-box;
 
         transform: translateY(-70%);
         transition: transform 0.6s ease-out;
     }
-}
 
-.nav-is-active .nav-primary {
-    transform: translateX(0);
-}
-.nav-is-active .nav-primary ul {
-    transform: translateY(0);
-}
-
-.nav__contact {
-    display: none;
-}
-
-/* Bloque le scroll de la page tant que le menu mobile est ouvert */
-.nav-is-active body {
-    overflow: hidden;
-}
-
-/* --- Desktop : navigation horizontale inline dans le header --- */
-@media (width >= $breakpoint-md) {
-    .nav-primary {
-        display: block;
-        position: static;
-        background: unset;
-        height: auto;
-        width: auto;
-        padding-top: 0;
-        transform: none;
-        z-index: 2;
+    .nav-is-active & {
+        transform: translateX(0);
+        visibility: visible;
+        transition-delay: 0s;
 
         ul {
-            flex-direction: row;
-            transform: none;
+            transform: translateY(0);
         }
     }
 
-    .nav-primary__item {
-        color: var(--color-black);
+    /* --- Desktop : navigation horizontale inline dans le header --- */
+    @media (width >= $breakpoint-md) {
+        display: block;
+        position: relative; /* + z-index pour passer au-dessus du ::before du header */
+        background: unset;
+        height: auto;
+        width: auto;
+        padding: 0;
+        transform: none;
+        visibility: visible;
+        transition: none;
+        z-index: 3;
+        justify-self: end;
+
+        ul {
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            padding: 0;
+            transform: none;
+        }
+    }
+}
+
+.nav__item,
+.nav-primary__item {
+    position: relative;
+    color: var(--color-black);
+    text-transform: uppercase;
+    font-weight: 600;
+
+    /* Soulignement animé au survol (mobile) */
+    @media (width <= $breakpoint-md) {
+        text-transform: none;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background-color: var(--color-black);
+            transform: scaleX(0);
+            transition: 0.3s all;
+        }
+
+        &:hover {
+            text-decoration: none;
+            color: inherit;
+
+            &::before {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    /* Desktop */
+    @media (width >= $breakpoint-md) {
         font-size: var(--font-size-nav);
-        text-transform: uppercase;
 
         &::before {
             content: none;
         }
     }
+}
 
-    .nav__contact {
-        display: flex;
-        gap: 30px;
+/* ==========================================================================
+   Hub : barre de pastilles en bas du menu mobile, inline dans le header en desktop
+   ========================================================================== */
+.nav__contact {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    z-index: 3;
+
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0s linear 0.3s;
+
+    .nav-is-active & {
+        opacity: 1;
+        visibility: visible;
+        transition:
+            opacity 0.4s ease 0.3s,
+            visibility 0s;
     }
 
-    .invisible {
+    @media (width >= $breakpoint-md) {
+        position: relative;
+        inset: auto;
+        justify-self: center;
+        gap: 30px;
+        opacity: 1;
+        visibility: visible;
+        transition: none;
+    }
+
+    @media (width <= $breakpoint-sm){
+        padding-bottom: 30px;
+    }
+}
+
+.invisible {
+    @media (width >= $breakpoint-md) {
         opacity: 0;
         pointer-events: none;
+    }
+}
+
+/* Bloque le scroll de la page tant que le menu mobile est ouvert */
+.nav-is-active body {
+    overflow: hidden;
+
+    @media (width >= $breakpoint-md) {
+        overflow: auto;
     }
 }

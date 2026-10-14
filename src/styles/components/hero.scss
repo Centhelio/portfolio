@@ -46,6 +46,9 @@
 }
 
 .hero__information {
+    p{
+        font-size: typo(16px, 22px);
+    }
     display: flex;
     gap: 100px;
 }
