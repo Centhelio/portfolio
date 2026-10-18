@@ -7,8 +7,26 @@
         width: 30%;
     }
 
+    .textes{
+        width: 50%;
+
+        li{
+            font-size: var(--font-size-content-small);
+        }
+
+        p{
+            width: 100%;
+        }
+
+        a{
+            text-decoration: underline;
+        }
+    }
+
+
     p {
         width: 50%;
+
     }
 
     .highlight {
@@ -48,6 +66,10 @@
         flex-direction: column;
         gap: 30px;
         padding: 50px 0 30px 0;
+
+        .textes{
+            width: 100%;
+        }
 
         h2,
         p {
