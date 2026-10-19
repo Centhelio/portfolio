@@ -97,11 +97,68 @@
         .full__projet {
             .projet,
             .outil {
+                grid-template-columns: auto 3fr;
+            }
+            h3 {
+                display: none;
+            }
+        }
+    }
+    .technique {
+        .labels {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+
+            :nth-child(1) {
+                display: none;
+            }
+        }
+
+        .full__projet {
+            .projet,
+            .outil {
                 grid-template-columns: 2fr 3fr;
             }
             h3 {
                 display: none;
             }
         }
+    }
+}
+
+.next .wrapper {
+    padding: 60px 0;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    @media (width <= $breakpoint-sm) {
+        gap: 60px;
+        flex-direction: column;
+
+        a:nth-child(2) {
+            h2 {
+                text-align: end;
+                width: 80%;
+            }
+        }
+    }
+
+    a {
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        gap: 30px;
+
+        img {
+            width: 20%;
+        }
+    }
+
+    a:nth-child(2) {
+        align-items: end;
+    }
+    a:nth-child(1) {
+        align-items: start;
     }
 }

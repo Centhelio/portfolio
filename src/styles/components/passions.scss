@@ -33,7 +33,7 @@
 }
 
 .hover-image {
-    width: 300px; /* Adjust the width as needed */
+    width: 300px;
     height: auto;
     position: fixed;
     top: 0;
@@ -46,10 +46,12 @@
 }
 
 .larger {
-    width: 400px;
+    width: 500px;
+}
+.medium {
+    width: 350px;
 }
 
-/* Constrain the size of the img element inside the div */
 .hover-image img {
     width: 100%;
     height: auto;

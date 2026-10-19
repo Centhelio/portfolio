@@ -15,16 +15,14 @@
     background-color: var(--color-vert);
 }
 
-@media (width <= $breakpoint-sm){
-    .outil{
-        h3{
+@media (width <= $breakpoint-sm) {
+    .outil {
+        h3 {
             display: none;
         }
-        :nth-child(1){
+        :nth-child(1) {
             display: none;
         }
         grid-template-columns: 3fr 3fr 4fr;
-        
     }
-
 }

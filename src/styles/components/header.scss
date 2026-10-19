@@ -14,16 +14,12 @@
     justify-content: space-between;
     padding: 0 var(--spacing-sm);
 
-    /* "fixed" : le header ne prend pas de place dans la page,
-       il suit le scroll et se cache au scroll vers le bas. */
     position: fixed;
     top: 0;
     left: 0;
     z-index: 99;
     transition: transform 0.4s ease-out;
 
-    /* Fond du header : transparent tout en haut de la page,
-       puis il devient blanc pendant les 100 premiers px de scroll */
     &::before {
         content: '';
         position: absolute;
@@ -42,7 +38,6 @@
         }
     }
 
-    /* Menu mobile ouvert : le fond du header disparaît pour se fondre dans le menu */
     .nav-is-active &::before {
         animation: none;
         opacity: 0;
@@ -95,7 +90,6 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        isolation: isolate; /* garde le ::before (z-index -1) visible au-dessus du fond du header */
 
         &::before {
             content: '';
@@ -115,8 +109,6 @@
         position: relative;
     }
 
-    /* Desktop : 3 colonnes [logo | hub | menu]. Les colonnes latérales ont toujours
-       la même largeur (1fr), donc le hub reste centré dans la page. */
     @media (width >= $breakpoint-md) {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -126,7 +118,6 @@
 
     /* ---------- Mobile / tablette : liens du menu + hub ---------- */
     @media (width <= $breakpoint-md) {
-        /* Liens "Moi" / "Projets" : grands, alignés à gauche */
         .nav__menu li {
             width: auto;
             height: auto;
@@ -144,7 +135,6 @@
             text-transform: none;
         }
 
-        /* Hub : 4 pastilles de 45px sur une ligne, centrées */
         .hub ul {
             display: flex;
             justify-content: center;
@@ -174,7 +164,6 @@
     }
 }
 
-/* Logo au-dessus du fond du header */
 .header__brand {
     max-width: 50px;
     position: relative;
@@ -223,15 +212,20 @@
         transition: 0.3s all ease-out;
 
         &:nth-child(1) {
-            top: calc(50% - var(--bar-height) / 2 - var(--bar-height) - var(--bar-spacer));
+            top: calc(
+                50% - var(--bar-height) /
+                    2 - var(--bar-height) - var(--bar-spacer)
+            );
         }
 
         &:nth-child(3) {
-            top: calc(50% - var(--bar-height) / 2 + var(--bar-height) + var(--bar-spacer));
+            top: calc(
+                50% - var(--bar-height) / 2 + var(--bar-height) +
+                    var(--bar-spacer)
+            );
         }
     }
 
-    /* État "menu ouvert" : le burger devient une croix */
     .nav-is-active & {
         span {
             top: calc(50% - var(--bar-height) / 2);
@@ -259,14 +253,13 @@
    Navigation principale
    ========================================================================== */
 
-/* --- Mobile first : menu plein écran, fond crème --- */
 .nav-primary {
     background-color: var(--color-white);
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    height: 100dvh; 
+    height: 100dvh;
     width: 100%;
     padding-top: var(--header-height);
     padding-bottom: 100px;
@@ -285,7 +278,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
         gap: 20px;
         list-style: none;
         padding: 0 var(--spacing-sm);
@@ -307,10 +300,9 @@
         }
     }
 
-    /* --- Desktop : navigation horizontale inline dans le header --- */
     @media (width >= $breakpoint-md) {
         display: block;
-        position: relative; /* + z-index pour passer au-dessus du ::before du header */
+        position: relative;
         background: unset;
         height: auto;
         width: auto;
@@ -338,7 +330,6 @@
     text-transform: uppercase;
     font-weight: 600;
 
-    /* Soulignement animé au survol (mobile) */
     @media (width <= $breakpoint-md) {
         text-transform: none;
 
@@ -365,7 +356,6 @@
         }
     }
 
-    /* Desktop */
     @media (width >= $breakpoint-md) {
         font-size: var(--font-size-nav);
 
@@ -382,7 +372,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 0;    
+    bottom: 0;
     z-index: 3;
 
     display: flex;
@@ -412,7 +402,7 @@
         transition: none;
     }
 
-    @media (width <= $breakpoint-sm){
+    @media (width <= $breakpoint-sm) {
         padding-bottom: 30px;
     }
 }
@@ -424,7 +414,6 @@
     }
 }
 
-/* Bloque le scroll de la page tant que le menu mobile est ouvert */
 .nav-is-active body {
     overflow: hidden;
 

@@ -7,10 +7,73 @@
 }
 
 .labels {
+    height: 100px !important;
     border-top: none;
     p {
         font-size: 16px;
         color: gray;
         font-weight: 500;
+    }
+}
+
+.outils {
+    .listes {
+        height: 120px;
+    }
+}
+
+.philosophie {
+    .listes {
+        height: 120px;
+    }
+}
+
+.technique {
+    .listes {
+        height: 120px;
+    }
+}
+
+.etapes {
+    .listes {
+        height: 200px;
+    }
+}
+
+.projets {
+    .listes {
+        height: 200px;
+    }
+}
+
+@media (width <= $breakpoint-sm) {
+    .outils {
+        .listes {
+            height: 150px;
+        }
+    }
+
+    .philosophie {
+        .listes {
+            height: 150px;
+        }
+    }
+
+    .technique {
+        .listes {
+            height: 150px;
+        }
+    }
+
+    .etapes {
+        .listes {
+            height: 200px;
+        }
+    }
+
+    .projets {
+        .listes {
+            height: 500px;
+        }
     }
 }
