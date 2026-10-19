@@ -1,0 +1,15 @@
+.error {
+    .wrapper {
+        width: 100vh;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    h1 {
+        font-size: typo(34px, 200px);
+    }
+}
