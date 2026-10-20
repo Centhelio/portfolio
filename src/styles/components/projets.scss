@@ -118,25 +118,25 @@
         .cards {
             grid-template-columns: 1fr;
         }
-
+        
+        .card{
+            overflow: visible;
+            height: auto;
+        }
+        
         .card .card__content {
-            transform: translateY(0%);
+            position: relative;
+            transform: translateY(0);
+            display: block;
+            padding-top: 0;
             visibility: visible;
 
-            &.jaune {
-                background-color: none;
-            }
-            &.pink {
-                background-color: none;
-            }
-            &.bleu {
-                background-color: none;
-            }
         }
 
         .card {
-            .card__media img {
-                filter: brightness(85%);
+            .card__media {
+                height: 60%;
+                filter: brightness(100%);
             }
         }
     }
