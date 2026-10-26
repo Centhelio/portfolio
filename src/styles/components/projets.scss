@@ -6,7 +6,7 @@
 
 .card {
     position: relative;
-    height: 80%;
+    height: auto;
     overflow: hidden;
 }
 
@@ -118,19 +118,18 @@
         .cards {
             grid-template-columns: 1fr;
         }
-        
-        .card{
+
+        .card {
             overflow: visible;
             height: auto;
         }
-        
+
         .card .card__content {
             position: relative;
             transform: translateY(0);
             display: block;
             padding-top: 0;
             visibility: visible;
-
         }
 
         .card {
